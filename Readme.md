@@ -7,4 +7,6 @@ No bootstrap as well.
 ## run and build
 
 -   npm run dev -- dev run
--   snpm run build -- build
+-   npm run build -- build
+
+hosted on port 5174
