@@ -12,13 +12,25 @@ function App() {
         setReminders(loadedReminders);
     };
 
+    const removeReminder = async (id: number) => {
+        const response = await ReminderApi.deleteReminder(id);
+        if (response === 200) {
+            setReminders(reminders.filter((reminder) => reminder.id !== id));
+        } else {
+            console.log(`Error while deleting: ${response}`);
+        }
+    };
+
     useEffect(() => {
         loadReminders();
     }, []);
 
     return (
         <div className="App">
-            <ReminderList reminders={reminders} />
+            <ReminderList
+                reminders={reminders}
+                onRemoveClick={removeReminder}
+            />
         </div>
     );
 }

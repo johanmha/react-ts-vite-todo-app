@@ -3,15 +3,22 @@ import { Reminder } from '../models/reminder';
 
 interface ReminderListProps {
     reminders: Reminder[];
+    onRemoveClick: (id: number) => void;
 }
 
-const ReminderList = ({ reminders }: ReminderListProps) => {
-    console.log('reminders: ', reminders);
+const ReminderList = ({ reminders, onRemoveClick }: ReminderListProps) => {
     return (
         <ul>
             {reminders.map((reminder) => {
                 return (
-                    <li key={`reminder_${reminder.id}`}>{reminder.title}</li>
+                    <div
+                        className="reminder-wrapper"
+                        key={`reminder_${reminder.id}`}>
+                        <li>{reminder.title}</li>
+                        <button onClick={() => onRemoveClick(reminder.id)}>
+                            Remove
+                        </button>
+                    </div>
                 );
             })}
         </ul>
