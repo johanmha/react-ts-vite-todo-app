@@ -1,5 +1,7 @@
 import React from 'react';
+import './styles/ReminderList.css';
 import { Reminder } from '../models/reminder';
+import ReminderItem from './ReminderItem';
 
 interface ReminderListProps {
     reminders: Reminder[];
@@ -8,20 +10,15 @@ interface ReminderListProps {
 
 const ReminderList = ({ reminders, onRemoveClick }: ReminderListProps) => {
     return (
-        <ul>
-            {reminders.map((reminder) => {
-                return (
-                    <div
-                        className="reminder-wrapper"
-                        key={`reminder_${reminder.id}`}>
-                        <li>{reminder.title}</li>
-                        <button onClick={() => onRemoveClick(reminder.id)}>
-                            Remove
-                        </button>
-                    </div>
-                );
-            })}
-        </ul>
+        <div className="reminder-list">
+            {reminders.map((reminder) => (
+                <ReminderItem
+                    reminder={reminder}
+                    onRemoveClick={onRemoveClick}
+                    key={reminder.id}
+                />
+            ))}
+        </div>
     );
 };
 
