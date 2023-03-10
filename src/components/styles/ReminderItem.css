@@ -1,0 +1,15 @@
+.reminder-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn-remove {
+    /* background-color: #a61212; */
+    border-color: #a61212;
+}
+
+.btn-remove:hover {
+    /* background-color: #a61212; */
+    border-color: #d01717;
+}
