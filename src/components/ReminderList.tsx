@@ -6,11 +6,12 @@ interface ReminderListProps {
 }
 
 const ReminderList = ({ reminders }: ReminderListProps) => {
+    console.log('reminders: ', reminders);
     return (
         <ul>
             {reminders.map((reminder) => {
                 return (
-                    <div key={`reminder_${reminder.id}`}>{reminder.name}</div>
+                    <li key={`reminder_${reminder.id}`}>{reminder.title}</li>
                 );
             })}
         </ul>
