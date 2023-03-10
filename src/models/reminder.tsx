@@ -1,4 +1,6 @@
 export interface Reminder {
+    completed?: boolean;
     id: number;
-    name: string;
+    title: string;
+    userId?: number;
 }
